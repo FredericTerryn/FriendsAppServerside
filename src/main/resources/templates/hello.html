@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>FriendsApp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="text-center">
+		<h1>Welcome, this is the Friends-Application</h1>
+	</div>
+	<table class="text-center">
+		<tr>
+			<th>Name</th>
+		</tr>
+		<tr th:each="user : ${users}">
+			<td th:text="${user.firstName} + ' ' + ${user.lastName}"></td>
+		</tr>
+	</table>
+	<input type="submit" class="btn btn-success" value="Save"></input>
+
+</body>
+</html>
