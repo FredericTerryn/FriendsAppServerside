@@ -11,8 +11,8 @@ import org.springframework.stereotype.Repository;
 @RepositoryRestResource
 public interface UserRepository extends CrudRepository<User, Long> {
 
-	// Fetch cars by brand
-	  List<User> findByusername(@Param("username") String username);
+	// Fetch users by username
+	List<User> findByusername(@Param("username") String username);
 	  
 	User findByUsername(String username);
 	

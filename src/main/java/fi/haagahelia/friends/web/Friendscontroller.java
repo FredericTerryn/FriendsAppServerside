@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import fi.haagahelia.friends.domain.Event;
-
+import fi.haagahelia.friends.domain.EventRepository;
 import fi.haagahelia.friends.domain.Movie;
 import fi.haagahelia.friends.domain.MovieRepository;
 import fi.haagahelia.friends.domain.User;
@@ -27,7 +27,8 @@ public class Friendscontroller {
 	private UserRepository userRepository;
 	@Autowired
 	private MovieRepository movieRepository;
-	
+	@Autowired
+	private EventRepository eventRepository;
 	
 	// begin show OPENINGSPAGE
 	
@@ -59,13 +60,13 @@ public class Friendscontroller {
 	public @ResponseBody List<User> userListRest(){
 		return (List<User>) userRepository.findAll();
 	}
-	/*
+	
 	//rest to find Events
 	@RequestMapping(value="/EVENTS")
 	public @ResponseBody List<Event> eventListRest(){
-		return eventRepository.findAll();
+		return (List<Event>) eventRepository.findAll();
 	}
-	*/
+	
 //REST end 
 	
 	@RequestMapping(value="/movies")

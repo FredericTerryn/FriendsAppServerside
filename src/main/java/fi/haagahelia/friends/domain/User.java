@@ -31,6 +31,10 @@ public class User {
 	    @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
 	    @JsonIgnore
 	    private List<Movie> movies;
+	    @OneToMany(cascade =  CascadeType.ALL, mappedBy="proposer")
+	    @JsonIgnore
+	    private List<Event> events;
+	    
 	    
 	    public User() {}
 	    

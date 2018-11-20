@@ -1,11 +1,15 @@
 package fi.haagahelia.friends.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Event {
@@ -14,7 +18,11 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String eventName;
+	private double startingHour;
 	private Date date;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn (name= "proposer")
+	private User proposer; 
 	//eventType public, private, whatever
 	//categorie: party, ... 
 	
@@ -22,11 +30,41 @@ public class Event {
 		super();
 	}
 
-	public Event(String eventName, Date date) {
+
+
+	public Event(String eventName, double startingHour, Date date, User proposer) {
 		super();
 		this.eventName = eventName;
+		this.startingHour = startingHour;
 		this.date = date;
+		this.proposer = proposer;
 	}
+
+
+
+	public double getStartingHour() {
+		return startingHour;
+	}
+
+
+
+	public void setStartingHour(double startingHour) {
+		this.startingHour = startingHour;
+	}
+
+
+
+	public User getProposer() {
+		return proposer;
+	}
+
+
+
+	public void setProposer(User proposer) {
+		this.proposer = proposer;
+	}
+
+
 
 	public long getId() {
 		return id;
