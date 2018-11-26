@@ -87,4 +87,11 @@ public class FriendsApplication extends SpringBootServletInitializer  implements
 	public void run(String... args) throws Exception {
 
 	}
+	
+	@Override
+    protected SpringApplicationBuilder configure
+        (SpringApplicationBuilder application) {
+        return application.sources(FriendsApplication.class);
+    }
+
 }
