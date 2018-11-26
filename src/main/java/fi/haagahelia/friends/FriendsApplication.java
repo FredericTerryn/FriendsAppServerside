@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 // import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
 
@@ -24,7 +26,7 @@ import fi.haagahelia.friends.domain.UserRepository;
 
 @SpringBootApplication
 // @EnableOAuth2Sso
-public class FriendsApplication implements CommandLineRunner {
+public class FriendsApplication extends SpringBootServletInitializer  implements CommandLineRunner {
 
 	@Autowired
 	private MovieRepository movieRepository;
@@ -39,10 +41,20 @@ public class FriendsApplication implements CommandLineRunner {
 	@Autowired
 	private BorrowerRepository borrowerRepository; 
 
+	
+	@Override
+    protected SpringApplicationBuilder configure
+        (SpringApplicationBuilder application) {
+        return application.sources(FriendsApplication.class);
+    }
+	
+	
 	public static void main(String[] args) {
 		SpringApplication.run(FriendsApplication.class, args);
 
 	}
+	
+	
 
 	@Bean
 	CommandLineRunner runner() {
