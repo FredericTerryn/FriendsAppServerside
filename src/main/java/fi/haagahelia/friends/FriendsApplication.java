@@ -55,22 +55,25 @@ public class FriendsApplication implements CommandLineRunner {
 			User admin = new User("admin", "$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG", "ADMIN");
 			userRepository.save(admin);
 
-			movieRepository.save(new Movie("Inception", "Christopher Nolan", 2009, 9, admin));
-			
-			eventRepository.save(new Event("Party at Heidis beer bar", 19, (new Date()), admin));
-			eventRepository.save(new Event("Party at Maxine", 20, (new Date(118, 10, 20)), admin));
+			movieRepository.save(new Movie("Inception", "Christopher Nolan", 2009, 9));
+			movieRepository.save(new Movie("Interstellar", "Christopher Nolan", 2009, 9));
+			movieRepository.save(new Movie("True Grit", "The Nolan Brothers", 2009, 9));
+			movieRepository.save(new Movie("Memento", "Christopher Nolan", 2009, 9));
+			movieRepository.save(new Movie("Johnny English ", "James Cook", 2009, 9));
+			eventRepository.save(new Event("Party at Heidis beer bar", 19, "1996-10-08", "Iepersestraat 89, 8890 Moorslede"));
+			eventRepository.save(new Event("Party at Maxine", 20, "1996-08-10", "Iepersestraat 89, 8890 Moorslede"));
 			debtRepository.save(new Debt(15, "Johnny", "Jason", "MovieTickets"));
-			
+			System.out.println(new Date());
 			lenderRepository.save(new Lender("Frederic Terryn "));
 			lenderRepository.save(new Lender("Max Schwind"));
 			lenderRepository.save(new Lender("Guillem Nadal"));
 			lenderRepository.save(new Lender("Nick Stunnenberg"));
-			
+
 			borrowerRepository.save(new Borrower("Frederic Terryn "));
 			borrowerRepository.save(new Borrower("Max Schwind"));
 			borrowerRepository.save(new Borrower("Guillem Nadal"));
 			borrowerRepository.save(new Borrower("Nick StunnenBerg"));
-			
+			 
 		};
 	}
 

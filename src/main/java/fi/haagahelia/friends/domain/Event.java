@@ -1,5 +1,7 @@
 package fi.haagahelia.friends.domain;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -10,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
 @Entity
 public class Event {
 	
@@ -20,6 +21,7 @@ public class Event {
 	private String eventName;
 	private double startingHour;
 	private Date date;
+	private String location; 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn (name= "proposer")
 	private User proposer; 
@@ -32,12 +34,20 @@ public class Event {
 
 
 
-	public Event(String eventName, double startingHour, Date date, User proposer) {
+	public Event(String eventName, double startingHour, String date, String location) {
 		super();
 		this.eventName = eventName;
 		this.startingHour = startingHour;
-		this.date = date;
-		this.proposer = proposer;
+		SimpleDateFormat parser=new SimpleDateFormat("yyyy-MM-dd");
+		
+		try {
+			this.date = parser.parse(date);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
+		//this.proposer = proposer;
+		this.location = location;
 	}
 
 
@@ -50,6 +60,18 @@ public class Event {
 
 	public void setStartingHour(double startingHour) {
 		this.startingHour = startingHour;
+	}
+
+	
+
+	public String getLocation() {
+		return location;
+	}
+
+
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 

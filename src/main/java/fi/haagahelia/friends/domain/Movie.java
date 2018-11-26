@@ -29,28 +29,19 @@ public class Movie {
 		return id;
 	}
 	
-	public Movie(String title, String director, int year, int score, User user) {
+	public Movie(String title, String director, int year, int score) {
 		super();
 		this.title = title;
 		this.director = director;
 		this.year = year;
 		this.score = score;
-		this.user = user;
-		
+			
 	}
 	public Movie() {
 		super();
 	}
 	
-	
-	
-	public User getUser() {
-		return user;
-	}
 
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	public void setId(long id) {
 		this.id = id;
