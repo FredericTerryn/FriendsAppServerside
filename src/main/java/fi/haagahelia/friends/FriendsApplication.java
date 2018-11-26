@@ -26,7 +26,7 @@ import fi.haagahelia.friends.domain.UserRepository;
 
 @SpringBootApplication
 // @EnableOAuth2Sso
-public class FriendsApplication extends SpringBootServletInitializer  implements CommandLineRunner {
+public class FriendsApplication   implements CommandLineRunner {
 
 	@Autowired
 	private MovieRepository movieRepository;
@@ -41,12 +41,6 @@ public class FriendsApplication extends SpringBootServletInitializer  implements
 	@Autowired
 	private BorrowerRepository borrowerRepository; 
 
-	
-	@Override
-    protected SpringApplicationBuilder configure
-        (SpringApplicationBuilder application) {
-        return application.sources(FriendsApplication.class);
-    }
 	
 	
 	public static void main(String[] args) {
