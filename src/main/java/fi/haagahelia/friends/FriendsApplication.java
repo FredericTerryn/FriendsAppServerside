@@ -7,7 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
 // import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
 
@@ -26,7 +26,7 @@ import fi.haagahelia.friends.domain.UserRepository;
 
 @SpringBootApplication
 // @EnableOAuth2Sso
-public class FriendsApplication extends SpringBootServletInitializer  implements CommandLineRunner {
+public class FriendsApplication  implements CommandLineRunner {
 
 	@Autowired
 	private MovieRepository movieRepository;
@@ -44,6 +44,7 @@ public class FriendsApplication extends SpringBootServletInitializer  implements
 	
 	
 	public static void main(String[] args) {
+		
 		SpringApplication.run(FriendsApplication.class, args);
 
 	}
@@ -65,9 +66,21 @@ public class FriendsApplication extends SpringBootServletInitializer  implements
 			movieRepository.save(new Movie("Interstellar", "Christopher Nolan", 2009, 9));
 			movieRepository.save(new Movie("True Grit", "The Nolan Brothers", 2009, 9));
 			movieRepository.save(new Movie("Memento", "Christopher Nolan", 2009, 9));
-			movieRepository.save(new Movie("Johnny English ", "James Cook", 2009, 9));
-			eventRepository.save(new Event("Party at Heidis beer bar", 19, "1996-10-08", "Iepersestraat 89, 8890 Moorslede"));
-			eventRepository.save(new Event("Party at Maxine", 20, "1996-08-10", "Iepersestraat 89, 8890 Moorslede"));
+			movieRepository.save(new Movie("Shawshank Redemption", "Frank Darabont", 2009, 9));
+			movieRepository.save(new Movie("The Godfather", "Francis coppola", 1972, 9));
+			movieRepository.save(new Movie("Dark Knight", "Christopher Nolan", 2008, 9));
+			movieRepository.save(new Movie("12 Angry men", "Sidney Lumet", 2009, 9));
+			movieRepository.save(new Movie("Schindlers List ", "Steven Spielberg", 1993, 9));
+			eventRepository.save(new Event("Party at Heidis beer bar", 19, "2018-11-20", "Iepersestraat 89, 8890 Moorslede"));
+			eventRepository.save(new Event("Party at Maxine", 20, "2018-11-21", "Iepersestraat 89, 8890 Moorslede"));
+			eventRepository.save(new Event("Drinks", 18, "2018-11-22", "Iepersestraat 89, 8890 Moorslede"));
+			eventRepository.save(new Event("MovieNight", 20, "2018-11-22", "Iepersestraat 89, 8890 Moorslede"));
+			eventRepository.save(new Event("Happy afternoon", 12, "2018-11-27", "Iepersestraat 89, 8890 Moorslede"));
+			eventRepository.save(new Event("Tea-time", 15, "2018-11-24", "Iepersestraat 89, 8890 Moorslede"));
+			eventRepository.save(new Event("Nuuksio-trip", 8, "2018-11-29", "Iepersestraat 89, 8890 Moorslede"));
+			eventRepository.save(new Event("Party", 21, "2018-11-15", "Iepersestraat 89, 8890 Moorslede"));
+			eventRepository.save(new Event("Party", 21, "2018-11-14", "Iepersestraat 89, 8890 Moorslede"));
+			eventRepository.save(new Event("Party at Maxine", 20, "2018-11-13", "Iepersestraat 89, 8890 Moorslede"));
 			debtRepository.save(new Debt(15, "Johnny", "Jason", "MovieTickets"));
 			System.out.println(new Date());
 			lenderRepository.save(new Lender("Frederic Terryn "));
@@ -87,11 +100,6 @@ public class FriendsApplication extends SpringBootServletInitializer  implements
 	public void run(String... args) throws Exception {
 
 	}
-	
-	@Override
-    protected SpringApplicationBuilder configure
-        (SpringApplicationBuilder application) {
-        return application.sources(FriendsApplication.class);
-    }
+
 
 }
